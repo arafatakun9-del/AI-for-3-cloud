@@ -38,6 +38,14 @@ class MainActivity : Activity() {
         scroll.addView(page)
         setContentView(scroll)
 
+        page.addView(ImageView(this).apply {
+            setImageResource(R.drawable.arafat_logo)
+            contentDescription = "Arafat Dual AI logo"
+            scaleType = ImageView.ScaleType.CENTER_CROP
+            layoutParams = LinearLayout.LayoutParams(dp(88), dp(88)).apply {
+                bottomMargin = dp(10)
+            }
+        })
         page.addView(label("Arafat Dual AI", 27, true))
         page.addView(label("ChatGPT + Gemini • AI review", 14, false))
         page.addView(space(14))
