@@ -26,6 +26,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.11.1"
+      - name: Prepare portrait icon
+        run: |
+          mkdir -p app/src/main/res/drawable-nodpi
+          base64 --decode app/src/main/assets/arafat_logo.jpg.b64 > app/src/main/res/drawable-nodpi/arafat_logo.jpg
       - name: Build debug APK
         run: gradle --no-daemon assembleDebug
       - name: Upload APK
